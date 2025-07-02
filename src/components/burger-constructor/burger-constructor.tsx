@@ -25,7 +25,7 @@ export const BurgerConstructor: FC = () => {
   const orderRequest = useSelector(selectOrderRequest);
   const orderModalData = useSelector(selectUserOrder);
 
-  const onOrderClick = () => {
+  const onOrderClick = async () => {
     if (!constructorItems.bun || orderRequest) return;
 
     if (!userInit) {
@@ -39,12 +39,16 @@ export const BurgerConstructor: FC = () => {
       constructorItems.bun!._id
     ];
 
-    dispatch(fetchUserOrder(order));
+    try {
+      await dispatch(fetchUserOrder(order));
+      dispatch(clearBurgerConstructor());
+    } catch (error) {
+      console.error('Ошибка при оформлении заказа:', error);
+    }
   };
 
   const closeOrderModal = () => {
     dispatch(clearUserOrder());
-    dispatch(clearBurgerConstructor());
     navigateTo('/');
   };
 

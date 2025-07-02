@@ -19,12 +19,12 @@ export const initialState: IOrdersState = {
 };
 
 export const fetchUserOrder = createAsyncThunk(
-  'ordersUser/fetchUserOrder',
+  'userOrders/fetchUserOrder',
   async (data: string[]) => orderBurgerApi(data)
 );
 
 export const fetchGetUserOrders = createAsyncThunk(
-  'ordersUser/fetchGetUserOrders',
+  'userOrders/fetchGetUserOrders',
   async () => getOrdersApi()
 );
 

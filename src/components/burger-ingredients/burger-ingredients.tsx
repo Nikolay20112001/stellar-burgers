@@ -12,21 +12,21 @@ export const BurgerIngredients: FC = () => {
   /** TODO: взять переменные из стора */
   const buns = useMemo(() => {
     const allBunsFromIngredients = allIngredients.filter(
-      (ingredient) => ingredient.type == 'bun'
+      (ingredient) => ingredient.type === 'bun'
     );
     return allBunsFromIngredients;
   }, [allIngredients]);
 
   const mains = useMemo(() => {
     const allMainFromIngredients = allIngredients.filter(
-      (ingredient) => ingredient.type == 'main'
+      (ingredient) => ingredient.type === 'main'
     );
     return allMainFromIngredients;
   }, [allIngredients]);
 
   const sauces = useMemo(() => {
     const allSauceFromIngredients = allIngredients.filter(
-      (ingredient) => ingredient.type == 'sauce'
+      (ingredient) => ingredient.type === 'sauce'
     );
     return allSauceFromIngredients;
   }, [allIngredients]);
